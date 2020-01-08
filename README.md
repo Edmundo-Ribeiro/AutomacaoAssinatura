@@ -38,10 +38,12 @@ Introdução:
 2) Realizar as modificações necessárias na planilha e salvar
 
 3) 
- 3.1 - Fazer dowload dos arquivos: "assisnatura.jsx", "json2.js", "arquivo-com-as-credencias-do-projeto.json",
+ 3.1. Fazer dowload dos arquivos: "assisnatura.jsx", "json2.js", "arquivo-com-as-credencias-do-projeto.json",
    e "membros.json"
- 3.2 - colocar tudo na mesma pasta 
- 3.3 - nessa pasta criar mais uma pasta chamada assisntaturas onde irão ficar as fotos
+   
+ 3.2. Colocar tudo na mesma pasta 
+ 
+ 3.3. Nessa pasta criar mais uma pasta chamada assisntaturas onde irão ficar as fotos
 
 4) Abrir o terminal e rodar: python xl2json.py
 
