@@ -49,7 +49,7 @@ Introdução:
 
 6) Abrir o arquivo "assisnatura.psd" no photoshop
 
-7) Editar a assisnatura para como quer que ela seja (Se for mudar algo)
+7) Editar a assinatura para como quer que ela seja (Se for mudar algo)
    mas não mudar o nome das coisas em vermelho ou adicionar coisas nas pastas em vermelho
 
 8) Salvar o arquivo
