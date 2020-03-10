@@ -1,18 +1,18 @@
 # AutomacaoAssinatura
-Automação da criação das assinaturas de email
+Automação da criação das assinaturas de email a partir de planilha empresarial de funcionarios.
 Autor : Edmundo Ribeiro 
 Email : jtvedy@gmail.com / edmundoribeiro@mecajun.com
 
-------------------------------------------------------------------------------
-O programa criar imagens .jpg para assinaturas de email conforme a estrutura 
-criada no arquivo assinaturas.psd e os dados contidos na planilha assinaturas-email no drive
 
+## What it does
+
+The program creates a batch of .jpg images according to the design developed in the .psd (Photoshop) file and with the employee contact information, the employee role, the company contact, the company logo, etc. It gets those informations from an online [Google Drive sheet](https://docs.google.com/spreadsheets).
 ------------------------------------------------------------------------------
+
 Dependências:
 - Photoshop
 - Python 3
 - Credenciais do app disponibilizadas pelo Google API
-
 ------------------------------------------------------------------------------
 Introdução:
 
