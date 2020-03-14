@@ -1,59 +1,55 @@
-#   Autor: Edmundo Ribeiro 
+#   Author: Edmundo Ribeiro 
 #   Email: jtvedy@gmail.com / edmundoribeiro@mecajun.com
 
-#   Código para conversão dos dados na planilha do google drive
-#	para o formato .json
+#   Convert the google sheet data into a .json file
 
 import pandas as pd
+import os
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-scope = ['https://spreadsheets.google.com/feeds',
-         'https://www.googleapis.com/auth/drive']
 
-credentials = ServiceAccountCredentials.from_json_keyfile_name(
-         'arquivo-com-as-credencias-do-projeto.json', scope) # credenciais do json
+credentials_file  = 'credentials.json'
+output_json_file = 'members.json'
+sheet_name = 'test_sheet'
 
+scope = ['https://www.googleapis.com/auth/drive']
+
+credentials = ServiceAccountCredentials.from_json_keyfile_name(credentials_file, scope) 
 
 def createJsonObj(name, role, phone = '0'):
 	p =  phone if type(phone) == type("0") else '0'
-	f.write('{\n"name": "' + name +'",\n'+ '"role": "' + role +'",\n'+ '"phone": "' + p +'"\n},\n');
-
-
-print("Autorizando...",end=" ")
-try:
-	gc = gspread.authorize(credentials) #autorização
-	print("OK")
-
-	wks = gc.open("assinaturas-email").sheet1 #abrir planilha
-
-	data = wks.get_all_values() #pegar dados da planilha
-
-	df = pd.DataFrame(data) #transforma data em um dataframe
+	f.write(f'{{\n "name":"{name}", \n "role":"{role}",\n "phone":"{p}"\n}},\n')
 	
 
-	k = df.values #pega os valores do dataframe
+print("Authorizing...",end=" ")
+try:
+	gc = gspread.authorize(credentials) #Authorizing
+	print("OK")
+
+	wks = gc.open( sheet_name ).sheet1 #opening sheet
+
+	data = wks.get_all_values() #getting the data
+
+	df = pd.DataFrame(data) #transforming the data in a easier to use data structure
+
+
+	k = df.values #getting just the values
 	print(k)
 
 
-	f = open("membros.json","w+", encoding='utf-8') #cria o arquivo onde será salvo o json
+	f = open(output_json_file,"w+", encoding='utf-8') #create the .json output file
 
 	f.write("[\n")
-	
+
 	for name, role, phone in k:
 		createJsonObj(name,role,phone)
-	
+
 	f.write("]")
 	f.close()
+	
+	if not os.path.exists('Signatures'):
+		os.mkdir('Signatures')
 
 except:
 	print("Error")
-
-
-
-
-
-
-
-
-# df = pd.read_excel (r'C:\Users\Edmundo\Desktop\assinaturas\assinaturas-email.xlsx') #for an earlier version of Excel, you may need to use the file extension of 'xls'
