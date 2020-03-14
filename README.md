@@ -1,5 +1,6 @@
 # Signature Automation
 Author : Edmundo Ribeiro 
+
 Email : jtvedy@gmail.com / edmundoribeiro@mecajun.com
 
 ## What is
@@ -19,10 +20,10 @@ The program creates a batch of .jpg images according to the design developed in 
 - Photoshop
 - Python 3
 - Libreries
-  - gspread
-  - pandas
-  - oauth2client
-  - json2.js
+  - [gspread](https://gspread.readthedocs.io/en/latest/)
+  - [pandas](https://pandas.pydata.org/)
+  - [oauth2client](https://oauth2client.readthedocs.io/en/latest/)
+  - [json2.js](https://gist.github.com/atheken/654510)
 
 ---
 
@@ -65,6 +66,6 @@ The program creates a batch of .jpg images according to the design developed in 
 - Open the Signatures folder and see the results
 
 ## Preview
-[](Img/preview.gif)
+![](Img/preview.gif)
 
 
