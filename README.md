@@ -39,8 +39,6 @@ The program creates a batch of .jpg images according to the design developed in 
 
 ## How to run
 
-### What you will need
-
 - Open the google api [console]() 
   - Create a new project
   - Enable the google drive API
