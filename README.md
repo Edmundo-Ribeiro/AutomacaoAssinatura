@@ -1,67 +1,70 @@
 # AutomacaoAssinatura
-Automação da criação das assinaturas de email a partir de planilha empresarial de funcionarios.
-Autor : Edmundo Ribeiro 
+Author : Edmundo Ribeiro 
 Email : jtvedy@gmail.com / edmundoribeiro@mecajun.com
+
+## What is
+This is a program to automate the process of creating the members email signatures every semester
+at the junior enterprise [Mecajun](https://www.mecajun.com/). To protect the members personal data and enterprise data this repository do not contain the original code developet there, but instead an exemplifiend vesrsion. 
+
+## Motivation
+Every semester someone in the junior enterprise [Mecajun](https://www.mecajun.com/) that i'm member had to create the email signatures, in photoshop, for all new members and members that changed roles. This process was time consuming and when was my time to update the design of the email signature, I decided to automate the process so I wouldnt have to create more than 30 of those by hand in photoshop. Now the processe is relly quick, pratical and no one has to sempt the day creating signatures or be afraid to make some design changes. 
 
 
 ## What it does
-
 The program creates a batch of .jpg images according to the design developed in the .psd (Photoshop) file and with the employee contact information, the employee role, the company contact, the company logo, etc. It gets those informations from an online [Google Drive sheet](https://docs.google.com/spreadsheets).
-------------------------------------------------------------------------------
 
-Dependências:
+---
+
+## Dependencies:
 - Photoshop
 - Python 3
-- Credenciais do app disponibilizadas pelo Google API
-------------------------------------------------------------------------------
-Introdução:
+- Libreries
+  - gspread
+  - pandas
+  - oauth2client
+  - json2.js
 
-- arquivo-com-as-credencias-do-projeto.json é o arquivo que contem 
-  a atuenticação do google drive para poder pegar os dados da planilha online.
+---
 
--
-- json (JavaScript Object Notation) é um uma forma representar um objeto
-  em javaScript de forma simples e legível para humanos.
+## Overview:
 
-- O Photoshop executa javaScript
+- The credentials.json is a file made aveilable by the google docs [api](https://developers.google.com/drive) and grant access to the drive sheet from the python code.
 
-- assinatura.jsx é o arquivo que roda no photoshop e faz as assinaturas
+- The Adobe Photoshop is capable of executing similar to javaScript [scripts](https://www.adobe.com/content/dam/acom/en/devnet/photoshop/scripting/photoshop-cc-scripting-guide.pdf) to manipulate .psd project elements.
 
-- json2.js é uma biblioteca para transformar o conteúdo dos arquivos .json em objetos
+- [signature.jsx](/signature.jsx) is the script that will run in the Photoshop.
 
-- xl2json.py é o codigo que pega os dados no formato da planilha e cria o arquivo 
-  membros.json que pode ser lido pelo código que roda no photoshop
+- [xl2json.py](/xl2json.py) is responseble to get the data from the google sheet and create a .json file with this data.
+---
 
-------------------------------------------------------------------------------
+## How to run
 
+### What you will need
 
-1) Abrir Planilha assinaturas-email
-
-2) Realizar as modificações necessárias na planilha e salvar
-
-3)
-  3.1. Fazer download dos arquivos: "assinatura.jsx", "json2.js", "arquivo-com-as-credencias-do-projeto.json",
-   e "membros.json"
-   
-  3.2 - colocar tudo na mesma pasta
+- Open the google api [console]() 
+  - Create a new project
+  - Enable the google drive API
+  - Genarate API credentials and download the credentials.json file
   
-  3.3 - nessa pasta criar mais uma pasta chamada assisntaturas onde irão ficar as fotos
+- Open [Google sheets](https://docs.google.com/spreadsheets)
+  - Create a google sheet like this one: [test_sheet](https://docs.google.com/spreadsheets/d/1DkVr452G_8Q2AWkOqfTvq3UKfVj45O409gA-fUpfmOs/edit?usp=sharing)
+  - Share it with the email addres obtained in the file credentials.json
+  - Allow this email to edit the sheet
 
-4) Abrir o terminal e rodar: python xl2json.py
+- Clone/Download this repository
+  - Install all of the python dependencies by running `pip install -r libraries/modules.txt `
+  - From the terminal run `python xl2json.py`
+  - Open the new file __members.json__ and check if everything is ok
 
-5) Ver se ta tudo certo
+- Now open the .psd file in Photoshop 
+  - Go to file > scripts > search and select [signture.jsx](/signture.jsx)
+  - Click Ok at the program prompt
+  - Wait it finish prossesing 
+  - _OBS_: It it possible to change the whole design, but the red marked folders cannot be renamed
 
-6) Abrir o arquivo "assinatura.psd" no photoshop
+- Open the Signatures folder and see the results
 
-7) Editar a assinatura para como quer que ela seja (Se for mudar algo)
-   mas não mudar o nome das coisas em vermelho ou adicionar coisas nas pastas em vermelho
+## Preview
+[](Img/preview.gif)
 
-8) Salvar o arquivo
 
-9) Clicar em Arquivo > Scripts > Procurar
-
-10) buscar o arquivo assinaturas.jsx e selecionar ele
-
-11) confirmar número de membros (clicar ok)
-
-12) Abrir a pasta assinaturas e ver as assinatura (fim)
