@@ -1,5 +1,5 @@
 # Signature Automation
-Author : Edmundo Ribeiro 
+Author : Edmundo Ribeiro
 Email : jtvedy@gmail.com / edmundoribeiro@mecajun.com
 
 ## What is
@@ -8,7 +8,6 @@ at the junior enterprise [Mecajun](https://www.mecajun.com/). To protect the mem
 
 ## Motivation
 Every semester someone in the junior enterprise [Mecajun](https://www.mecajun.com/) that i'm member had to create the email signatures, in photoshop, for all new members and members that changed roles. This process was time consuming and when was my time to update the design of the email signature, I decided to automate the process so I wouldnt have to create more than 30 of those by hand in photoshop. Now the processe is relly quick, pratical and no one has to sempt the day creating signatures or be afraid to make some design changes. 
-
 
 ## What it does
 The program creates a batch of .jpg images according to the design developed in the .psd (Photoshop) file and with the employee contact information, the employee role, the company contact, the company logo, etc. It gets those informations from an online [Google Drive sheet](https://docs.google.com/spreadsheets).
